@@ -10,23 +10,23 @@ var router = new Router();
 
 $(function(){
   Parse.initialize("tiygvl");
-  Parse.serverURL = 'https://bake-recipe.herokuapp.com';
+  Parse.serverURL = "https://bake-recipe.herokuapp.com/";
 
   $('#signup').on('submit', function(event){
-        event.preventDefault();
+    event.preventDefault();
 
-        var user = new Parse.User();
-        user.set({'username': $('#email').val(), 'password': $('#password').val()});
+    var user = new Parse.User();
+    user.set({'username': $('#email').val(), 'password': $('#password').val()});
 
-        user.signUp(null, {
-          'success': function(results){
-            console.log("results: ", results);
-          },
-          'error': function(user, error){
-            console.log(user, error);
-          }
-        });
-      });
+    user.signUp(null, {
+      'success': function(results){
+        console.log('results: ', results);
+      },
+      'error': function(user, error){
+        console.log(user, error);
+      }
+    });
+  });
 
       $('#login').on('submit', function(event){
         event.preventDefault();
